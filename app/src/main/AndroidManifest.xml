@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quesookt">
         <activity
+            android:name=".ui.view.quest.QuestDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
