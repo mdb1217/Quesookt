@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     kotlin("plugin.serialization") version Versions.kotlinVersion
+    id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
 }
@@ -65,4 +66,8 @@ dependencies {
     testImplementation(TestDependencies.androidTest)
     testImplementation(TestDependencies.jUnit)
     testImplementation(TestDependencies.espresso)
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:29.0.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
