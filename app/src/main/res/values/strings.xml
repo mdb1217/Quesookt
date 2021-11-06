@@ -5,6 +5,13 @@
     <string name="character">캐릭터</string>
     <string name="quest">퀘스트</string>
     <string name="complete">완료</string>
+    <!--Quest-->
+    <string name="go_to_library">학교 도서관 가기</string>
+    <string name="advice_library">도서관에서 공부해보세요</string>
+    <string name="num_people">5</string>
+    <string name="finish">명이 완료했어요!</string>
+    <string name="start">시작하기</string>
+    <string name="tip">Tip.</string>
     <string name="quest_complete">완료한 퀘스트</string>
     <string name="complete_list_title">학교 도서관 가기</string>
     <string name="complete_list_date">2021/11/06</string>
