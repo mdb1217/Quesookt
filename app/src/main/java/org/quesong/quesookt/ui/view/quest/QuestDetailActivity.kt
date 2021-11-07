@@ -3,17 +3,29 @@ package org.quesong.quesookt.ui.view.quest
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import dagger.hilt.android.AndroidEntryPoint
 import org.quesong.core.base.BindingActivity
+import org.quesong.core.util.AnimationUtil.setProgressAnimation
+import org.quesong.core.util.CalendarUtil.convertCalendarToString
 import org.quesong.core.util.DialogUtil
+import org.quesong.core.util.StatusBarUtil.setStatusBarColor
 import org.quesong.core.util.extension.setImgFilter20
 import org.quesong.quesookt.R
+import org.quesong.quesookt.data.local.QuesooktPreference
+import org.quesong.quesookt.data.local.model.QuestData
 import org.quesong.quesookt.databinding.ActivityQuestDetailBinding
 import org.quesong.quesookt.databinding.LayoutQuesooktDialogBinding
 import org.quesong.quesookt.ui.view.quest.model.QuestDetailInfoData
+import org.quesong.quesookt.ui.viewmodel.MainViewModel
+import java.util.*
 
+@AndroidEntryPoint
 class QuestDetailActivity :
     BindingActivity<ActivityQuestDetailBinding>(R.layout.activity_quest_detail) {
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit var trashDialog: Dialog
     private lateinit var trashDialogBinding: LayoutQuesooktDialogBinding
 
@@ -27,6 +39,7 @@ class QuestDetailActivity :
         initDialog()
         setDialog()
         initClickEvent()
+        setStatusBarColor(ContextCompat.getColor(this, R.color.black))
     }
 
     private fun initQuestDetailInfoData() {
@@ -38,13 +51,13 @@ class QuestDetailActivity :
                     getStringExtra("tip").toString(), 0
                 )
                 ivQuest.setImgFilter20()
-                when(getIntExtra("isStarted", START)) {
+                when (getIntExtra("isStarted", START)) {
                     START -> {
-                        pbQuest.progress = 0
+                        setProgressAnimation(binding.pbQuest, 0)
                         btnQuestState.text = "시작하기"
                     }
                     ING -> {
-                        pbQuest.progress = 50
+                        setProgressAnimation(binding.pbQuest, 50)
                         btnQuestState.text = "완료하기"
                     }
                     else -> {
@@ -58,14 +71,27 @@ class QuestDetailActivity :
     private fun initStateBtnClickListener() {
         with(binding) {
             btnQuestState.setOnClickListener {
-                when(btnQuestState.text) {
+                when (btnQuestState.text) {
                     getString(R.string.start) -> {
-                        pbQuest.progress = 50
+                        setProgressAnimation(pbQuest, 50)
                         btnQuestState.text = getString(R.string.finish_quest)
                     }
                     getString(R.string.finish_quest) -> {
                         //항목 삭제
-                        finish()
+                        intent.apply {
+                            mainViewModel.insertQuestData(
+                                QuestData(
+                                    null,
+                                    getStringExtra("title").toString(),
+                                    convertCalendarToString(
+                                        Calendar.getInstance(Locale.KOREA)
+                                    ),
+                                    getStringExtra("imgUrl").toString()
+                                )
+                            )
+                            QuesooktPreference.setScore(QuesooktPreference.getScore() + 40)
+                            finish()
+                        }
                     }
                 }
             }

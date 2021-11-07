@@ -8,10 +8,6 @@ import javax.inject.Inject
 class QuestRepositoryImpl@Inject constructor(private val questDao: QuestDao) : QuestRepository {
     override fun getAll(): List<QuestData> = questDao.getAll()
 
-    override fun getCompleteQuest(): List<QuestData> = questDao.getCompleteQuest()
-
-    override fun updateComplete(isCompleted: Int, id: Long) = questDao.updateComplete(isCompleted, id)
-
     override fun insert(questData: QuestData) = questDao.insert(questData)
 
     override fun delete(questData: QuestData) = questDao.delete(questData)

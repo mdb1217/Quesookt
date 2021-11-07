@@ -3,7 +3,11 @@ package org.quesong.quesookt.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.quesong.quesookt.data.local.model.QuestData
 import org.quesong.quesookt.domain.QuestRepository
 import javax.inject.Inject
@@ -15,57 +19,39 @@ class MainViewModel @Inject constructor(private val questRepo: QuestRepository) 
     val questList: LiveData<List<QuestData>>
         get() = _questList
 
-    private val _completeQuestList = MutableLiveData<List<QuestData>>()
-    val completeQuestList: LiveData<List<QuestData>>
-        get() = _completeQuestList
-
     fun insertQuestData(questData: QuestData) {
-        runCatching { questRepo.insert(questData) }
-            .onSuccess {
+        CoroutineScope(Dispatchers.IO).launch {
+            runCatching { questRepo.insert(questData) }
+                .onSuccess {
 
-            }
-            .onFailure {
-                it.printStackTrace()
-            }
-    }
-
-    fun getCompleteQuestRepo() {
-        runCatching { questRepo.getCompleteQuest() }
-            .onSuccess {
-                _completeQuestList.postValue(it)
-            }
-            .onFailure {
-                it.printStackTrace()
-            }
-    }
-
-    fun updateComplete(isCompleted: Int, id: Long) {
-        runCatching { questRepo.updateComplete(isCompleted, id) }
-            .onSuccess {
-
-            }
-            .onFailure {
-                it.printStackTrace()
-            }
+                }
+                .onFailure {
+                    it.printStackTrace()
+                }
+        }
     }
 
     fun deleteQuestData(questData: QuestData) {
-        runCatching { questRepo.delete(questData) }
-            .onSuccess {
+        CoroutineScope(Dispatchers.IO).launch {
+            runCatching { questRepo.delete(questData) }
+                .onSuccess {
 
-            }
-            .onFailure {
-                it.printStackTrace()
-            }
+                }
+                .onFailure {
+                    it.printStackTrace()
+                }
+        }
     }
 
     fun getAll() {
-        runCatching { questRepo.getAll() }
-            .onSuccess {
-                _questList.postValue(it)
-            }
-            .onFailure {
-                it.printStackTrace()
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            runCatching { questRepo.getAll() }
+                .onSuccess {
+                    _questList.postValue(it)
+                }
+                .onFailure {
+                    it.printStackTrace()
+                }
+        }
     }
 }
