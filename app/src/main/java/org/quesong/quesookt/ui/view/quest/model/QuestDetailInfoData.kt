@@ -6,5 +6,5 @@ data class QuestDetailInfoData(
     val state: String,
     val description: String,
     val tip: String,
-    val isStarted: Boolean
+    val isStarted: Int
 )

@@ -16,16 +16,39 @@ class QuestDetailActivity :
     }
 
     private fun initQuestDetailInfoData() {
-        // intent.getStringExtra("title") -> 서버로 보내서 데이터 받아오기
-        binding.questDetailInfoData = QuestDetailInfoData(
-            "이미지", intent.getStringExtra("title").toString(),
-            "시작하기", "갸아아아아아아앙", "팁입니다....", isStarted = false
-        )
+        with(intent) {
+            with(binding) {
+                questDetailInfoData = QuestDetailInfoData(
+                    getStringExtra("imgUrl").toString(), getStringExtra("title").toString(),
+                    getStringExtra("state").toString(), getStringExtra("description").toString(),
+                    getStringExtra("tip").toString(), 0
+                )
+                when(getIntExtra("isStarted", START)) {
+                    START -> {
+                        pbQuest.progress = 0
+                        btnQuestState.text = "시작하기"
+                    }
+                    ING -> {
+                        pbQuest.progress = 50
+                        btnQuestState.text = "완료하기"
+                    }
+                    else -> {
+
+                    }
+                }
+            }
+        }
     }
 
+    //시작 완료 -> 처리하기
     private fun initBackBtnClickListener() {
         binding.btnQuestState.setOnClickListener {
             finish()
         }
+    }
+
+    companion object {
+        const val START = 0
+        const val ING = 1
     }
 }
