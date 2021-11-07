@@ -13,7 +13,6 @@
         android:id="@+id/cl_quest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/main_sky"
         android:paddingHorizontal="16dp"
         android:paddingBottom="21dp">
 
@@ -21,6 +20,7 @@
             android:id="@+id/iv_item_quest"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            remoteRoundedImg="@{questInfoData.imgUrl}"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
