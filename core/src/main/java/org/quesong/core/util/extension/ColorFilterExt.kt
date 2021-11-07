@@ -1,4 +1,4 @@
-package org.quesong.core.util
+package org.quesong.core.util.extension
 
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
