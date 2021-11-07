@@ -14,4 +14,8 @@
     <color name="deep_blue">#1A316B</color>
     <color name="medium_blue">#366A9B</color>
     <color name="light_sky">#C1DEFF</color>
+    <color name="renaissance_yellow">#FFC800</color>
+    <color name="sunheon_green">#007800</color>
+    <color name="jinri_purple">#6400C8</color>
+    <color name="prime_red">#FF6400</color>
 </resources>
