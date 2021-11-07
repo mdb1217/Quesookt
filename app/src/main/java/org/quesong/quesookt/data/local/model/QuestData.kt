@@ -12,15 +12,9 @@ data class QuestData(
     @ColumnInfo(name = "title")
     val title: String,
 
-    @ColumnInfo(name = "explanation")
-    val explanation: String,
-
-    @ColumnInfo(name = "status")
-    val status: Int,
-
     @ColumnInfo(name = "date")
     val date: String,
 
-    @ColumnInfo(name = "complete")
-    val complete: Boolean
+    @ColumnInfo(name = "imageUrl")
+    val imageUrl: String
 )
