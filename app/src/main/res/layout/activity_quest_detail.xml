@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher"
+            app:remoteImgUrl="@{questDetailInfoData.imgUrl}"
             app:layout_constraintDimensionRatio="360:219"
             app:layout_constraintTop_toTopOf="parent" />
 
