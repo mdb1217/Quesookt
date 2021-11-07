@@ -1,8 +1,10 @@
 package org.quesong.quesookt.ui.view.quest.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.quesong.core.util.extension.setImgFilter30
 import org.quesong.quesookt.databinding.ItemQuestBinding
 import org.quesong.quesookt.ui.view.quest.model.QuestDetailInfoData
 import org.quesong.quesookt.ui.view.quest.model.QuestInfoData
@@ -41,6 +43,7 @@ class QuestAdapter : RecyclerView.Adapter<QuestAdapter.QuestViewHolder>() {
         fun onBind(responseQuestData: ResponseQuestData) {
             with(responseQuestData){
                 binding.questInfoData = QuestInfoData(title, description, people.toString(), state, progress, imgUrl)
+                binding.ivItemQuest.setImgFilter30()
             }
 
             binding.clQuest.setOnClickListener {

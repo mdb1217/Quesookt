@@ -2,6 +2,7 @@ package org.quesong.quesookt.ui.view.quest
 
 import android.os.Bundle
 import org.quesong.core.base.BindingActivity
+import org.quesong.core.util.extension.setImgFilter20
 import org.quesong.quesookt.R
 import org.quesong.quesookt.databinding.ActivityQuestDetailBinding
 import org.quesong.quesookt.ui.view.quest.model.QuestDetailInfoData
@@ -23,6 +24,7 @@ class QuestDetailActivity :
                     getStringExtra("state").toString(), getStringExtra("description").toString(),
                     getStringExtra("tip").toString(), 0
                 )
+                ivQuest.setImgFilter20()
                 when(getIntExtra("isStarted", START)) {
                     START -> {
                         pbQuest.progress = 0

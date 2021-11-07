@@ -1,5 +1,7 @@
 package org.quesong.core.util
 
+import android.content.res.Resources
+import android.util.TypedValue
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -11,7 +13,21 @@ object BindingAdapter {
     fun setRemoteRoundedImg(imageView: ImageView, url: String?) {
         Glide.with(imageView.context).load(url).transform(
             CenterCrop(),
-            RoundedCorners(IMAGE_RADIUS)
+            RoundedCorners(
+                TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    IMAGE_RADIUS.toFloat(),
+                    Resources.getSystem().displayMetrics
+                ).toInt()
+            )
+        ).into(imageView)
+    }
+
+    @JvmStatic
+    @androidx.databinding.BindingAdapter("remoteImgUrl")
+    fun setRemoteImg(imageView: ImageView, url: String?) {
+        Glide.with(imageView.context).load(url).transform(
+            CenterCrop()
         ).into(imageView)
     }
 
