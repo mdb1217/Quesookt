@@ -17,7 +17,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12632028147759403" />
         <entry key="app/src/main/res/layout/activity_on_board.xml" value="0.14072980082880443" />
         <entry key="app/src/main/res/layout/activity_onboard.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22436411225177746" />
         <entry key="app/src/main/res/layout/chip_question.xml" value="0.25205573078246235" />
         <entry key="app/src/main/res/layout/fragment_character.xml" value="0.1460080006292969" />
         <entry key="app/src/main/res/layout/fragment_complete.xml" value="0.31736696385186947" />
@@ -26,7 +26,8 @@
         <entry key="app/src/main/res/layout/fragment_quest.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/fragment_question.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_result.xml" value="0.1862065236984218" />
-        <entry key="app/src/main/res/layout/item_quest.xml" value="0.18697974920209873" />
+        <entry key="app/src/main/res/layout/item_completed_quest.xml" value="0.23561582651790527" />
+        <entry key="app/src/main/res/layout/item_quest.xml" value="0.2107867014695998" />
         <entry key="app/src/main/res/layout/item_question.xml" value="0.22092556060147814" />
         <entry key="app/src/main/res/layout/layout_quesookt_dialog.xml" value="0.28193094796402784" />
         <entry key="app/src/main/res/layout/rectangle_border_gray_top.xml" value="0.1" />

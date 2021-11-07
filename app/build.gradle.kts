@@ -72,6 +72,9 @@ dependencies {
     testImplementation(TestDependencies.jUnit)
     testImplementation(TestDependencies.espresso)
 
+    //Lottie
+    implementation("com.airbnb.android:lottie:3.6.0")
+
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:29.0.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
