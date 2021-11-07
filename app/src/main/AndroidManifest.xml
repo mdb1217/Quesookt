@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.quesong.quesookt">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".QuesooktApplication"
         android:allowBackup="true"
@@ -11,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quesookt">
         <activity
-            android:name=".ui.view.MainActivity"
+            android:name=".ui.view.quest.QuestDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.view.onboard.OnboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
