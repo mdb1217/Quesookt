@@ -15,6 +15,10 @@
     <string name="quest_complete">완료한 퀘스트</string>
     <string name="complete_list_title">학교 도서관 가기</string>
     <string name="complete_list_date">2021/11/06</string>
+    <string name="delete_sure">퀘스트를 포기하겠습니까?</string>
+    <string name="delete_desc">확인을 누르시면 퀘스트 진행이 초기화됩니다.</string>
+    <string name="accept">확인</string>
+    <string name="finish_quest">완료하기</string>
 
     <!--Onboard-->
     <string name="use">에서 사용할</string>

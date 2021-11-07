@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     id("kotlin-kapt")
     kotlin("plugin.serialization") version Versions.kotlinVersion
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -40,6 +41,7 @@ dependencies {
     // ImageLoading Library
     // Glide for general
     implementation(ThirdPartyDependencies.glide)
+    implementation("com.google.firebase:firebase-database:19.2.1")
     kapt(KaptDependencies.glideCompiler)
 
     // Http Client Library
