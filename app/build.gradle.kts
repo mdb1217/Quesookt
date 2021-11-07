@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("kapt")
+    id("kotlin-kapt")
     kotlin("plugin.serialization") version Versions.kotlinVersion
     id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")

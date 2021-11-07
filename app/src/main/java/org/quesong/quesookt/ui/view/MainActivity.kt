@@ -55,4 +55,9 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun replaceCompleteFragment() {
         replace(R.id.container_main, completeFragment)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }
