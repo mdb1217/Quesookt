@@ -83,6 +83,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_question"
+                android:overScrollMode="never"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_question" />
         </androidx.constraintlayout.widget.ConstraintLayout>

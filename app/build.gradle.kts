@@ -29,11 +29,12 @@ dependencies {
 
     // Dagger-Hilt
     implementation(AndroidXDependencies.hilt)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     implementation("com.google.firebase:firebase-database-ktx:19.7.0")
+    implementation("androidx.room:room-ktx:2.3.0")
+    kapt("androidx.room:room-compiler:2.3.0")
     kapt(KaptDependencies.hiltCompiler)
 
     // Jetpack Navigation Component
@@ -70,6 +71,9 @@ dependencies {
     testImplementation(TestDependencies.androidTest)
     testImplementation(TestDependencies.jUnit)
     testImplementation(TestDependencies.espresso)
+
+    //Lottie
+    implementation("com.airbnb.android:lottie:3.6.0")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:29.0.0"))
