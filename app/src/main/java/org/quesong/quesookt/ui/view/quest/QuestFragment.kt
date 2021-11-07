@@ -10,10 +10,15 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.quesong.core.base.BindingFragment
 import org.quesong.quesookt.R
+import org.quesong.quesookt.data.local.QuesooktPreference
 import org.quesong.quesookt.databinding.FragmentQuestBinding
 import org.quesong.quesookt.ui.view.quest.adapter.QuestAdapter
 import org.quesong.quesookt.ui.view.quest.model.QuestInfoData
 import org.quesong.quesookt.ui.view.quest.model.ResponseQuestData
+import org.quesong.quesookt.ui.viewmodel.OnboardViewModel.Companion.JINRI
+import org.quesong.quesookt.ui.viewmodel.OnboardViewModel.Companion.PRIME
+import org.quesong.quesookt.ui.viewmodel.OnboardViewModel.Companion.RENAISSANCE
+import org.quesong.quesookt.ui.viewmodel.OnboardViewModel.Companion.SUNHEON
 
 class QuestFragment : BindingFragment<FragmentQuestBinding>(R.layout.fragment_quest) {
     private lateinit var questAdapter: QuestAdapter
@@ -27,48 +32,58 @@ class QuestFragment : BindingFragment<FragmentQuestBinding>(R.layout.fragment_qu
         questAdapter = QuestAdapter()
         binding.rvQuest.adapter = questAdapter
 
-//        questAdapter.questList.addAll(
-//            listOf(
-//                QuestInfoData("타이틀", "설명", "3", "시작하기", 0, "이미지"),
-//                QuestInfoData("타이틀", "설명", "3", "시작하기", 0, "이미지"),
-//                QuestInfoData("타이틀", "설명", "3", "진행중", 50, "이미지"),
-//                QuestInfoData("타이틀", "설명", "3", "진행중", 50, "이미지")
-//            )
-//        )
-
-        questAdapter.questList.addAll(getQuestData())
-
+        getQuestData()
         initQuestClickListener()
     }
 
-    private fun getQuestData(): List<QuestInfoData> {
-        FirebaseDatabase.getInstance().getReference("QuestData")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    Log.d("take-please", dataSnapshot.value.toString())
-                    val responseQuestData: Any? = dataSnapshot.value
-                    val group: ResponseQuestData? =
-                        dataSnapshot.getValue(ResponseQuestData::class.java)
-                    //val group: ResponseQuestData? =
-                    //    dataSnapshot.getValue(ResponseQuestData::class.java)
-
-                    //각각의 값 받아오기 get어쩌구 함수들은 Together_group_list.class에서 지정한것
-                    //Log.d("survive", "im a live")
-                    //Log.d("test-server", group!!.user[0].title) //user는 어디서남?
+    private fun getQuestData() {
+        var domitory: String = ""
+        domitory = when(QuesooktPreference.getDormitory()) {
+            JINRI -> "jinri"
+            SUNHEON -> "soonheon"
+            PRIME -> "prime"
+            RENAISSANCE -> "rnesang"
+            else -> ""
+        }
+        val listData: MutableList<ResponseQuestData> = mutableListOf<ResponseQuestData>()
+        val questList: MutableList<ResponseQuestData> = mutableListOf()
+        val database = FirebaseDatabase.getInstance()
+        val indexList = mutableListOf<Int>()
+        database.getReference("Grp").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (userSnapshot in dataSnapshot.child(domitory).children){
+                    val getData: Int? = userSnapshot.getValue(Int::class.java)
+                    indexList.add(getData!!)
+                    //Log.d("wow", listData.toString())
                 }
-
-                override fun onCancelled(databaseError: DatabaseError) {
-                    Log.e("what", "help me"); // 에러문 출력
+                for(userSnapshot in dataSnapshot.child("QuestData").children){
+                    val getData: ResponseQuestData? = userSnapshot.getValue(ResponseQuestData::class.java)
+                    listData.add(getData!!)
                 }
-            })
-        return listOf(QuestInfoData("타이틀", "설명", "3", "진행중", 50, "이미지"))
-
+                for(idx in indexList) {
+                    questList.add(listData[idx])
+                }
+                questAdapter.questList = questList
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("what", "help me"); // 에러문 출력
+            }
+        })
     }
 
     private fun initQuestClickListener() {
         questAdapter.setQuestClickListener {
             val intent = Intent(requireContext(), QuestDetailActivity::class.java)
-            intent.putExtra("title", it)
+            with(it) {
+                intent.apply {
+                    putExtra("title", title)
+                    putExtra("imgUrl", imgUrl)
+                    putExtra("state", state)
+                    putExtra("description", description)
+                    putExtra("tip", tip)
+                    putExtra("isStarted", isStarted)
+                }
+            }
             startActivity(intent)
         }
     }
