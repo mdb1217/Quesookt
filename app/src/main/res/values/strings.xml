@@ -36,6 +36,13 @@
     <string name="exit">나가기</string>
     <string name="finish_ment">아직 튜토리얼이 남아있습니다!\n정말 퀘숙트를 나가시겠어요?</string>
 
+    <!--Character-->
+    <string name="exp">EXP.</string>
+    <string name="level1">안녕하세요! 눈송이입니다. 퀘스트를 완료하여 레벨업에 도전하세요!</string>
+    <string name="level2">정수리가 자란 레벨 2 눈송이입니다. 다음 레벨에 도전해보세요!</string>
+    <string name="level3">양갈래가 자란 레벨 3 눈송이입니다. 많은 퀘스트를 완료하셨네요!</string>
+
+
     <!--Tools-->
     <string name="gongang">어느날 공강 시간이 생긴 당신.\n어떤 일을 하시겠습니까?</string>
     <string name="renaissance">르네상스 기숙사</string>
