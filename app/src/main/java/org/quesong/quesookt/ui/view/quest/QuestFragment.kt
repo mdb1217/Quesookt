@@ -41,20 +41,20 @@ class QuestFragment : BindingFragment<FragmentQuestBinding>(R.layout.fragment_qu
         initQuestClickListener()
     }
 
-    private fun getQuestData() : List<QuestInfoData> {
+    private fun getQuestData(): List<QuestInfoData> {
         FirebaseDatabase.getInstance().getReference("QuestData")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     Log.d("take-please", dataSnapshot.value.toString())
-                    val responseQuestData : Any? = dataSnapshot.value
-                    val group: ResponseQuestData? = dataSnapshot.getValue(ResponseQuestData::class.java)
+                    val responseQuestData: Any? = dataSnapshot.value
+                    val group: ResponseQuestData? =
+                        dataSnapshot.getValue(ResponseQuestData::class.java)
                     //val group: ResponseQuestData? =
                     //    dataSnapshot.getValue(ResponseQuestData::class.java)
 
                     //각각의 값 받아오기 get어쩌구 함수들은 Together_group_list.class에서 지정한것
                     //Log.d("survive", "im a live")
                     //Log.d("test-server", group!!.user[0].title) //user는 어디서남?
-                    Log.d("last-test", group!!.toString())
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
