@@ -1,6 +1,7 @@
 package org.quesong.quesookt.ui.view
 
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import org.quesong.core.base.BindingActivity
 import org.quesong.core.util.extension.replace
 import org.quesong.quesookt.R
@@ -9,6 +10,7 @@ import org.quesong.quesookt.ui.view.character.CharacterFragment
 import org.quesong.quesookt.ui.view.complete.CompleteFragment
 import org.quesong.quesookt.ui.view.quest.QuestFragment
 
+@AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
     private val characterFragment: CharacterFragment by lazy { CharacterFragment() }
     private val questFragment: QuestFragment by lazy { QuestFragment() }
