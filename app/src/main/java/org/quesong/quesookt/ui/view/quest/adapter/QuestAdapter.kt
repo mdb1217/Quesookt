@@ -43,7 +43,7 @@ class QuestAdapter : RecyclerView.Adapter<QuestAdapter.QuestViewHolder>() {
         fun onBind(responseQuestData: ResponseQuestData) {
             with(responseQuestData){
                 binding.questInfoData = QuestInfoData(title, description, people.toString(), state, progress, imgUrl)
-                binding.ivItemQuest.setImgFilter30()
+                binding.ivQuest.setImgFilter30()
             }
 
             binding.clQuest.setOnClickListener {
