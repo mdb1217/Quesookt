@@ -19,7 +19,7 @@
 </tr>
 <tr>
     <td><b>Jetpack Components</b></td>
-<td>DataBinding, LiveData, ViewModel, Lifecycle, ViewPager2</td>
+<td>DataBinding, LiveData, ViewModel, Lifecycle, ViewPager2, Room, NavigationComponent</td>
 </tr>
 <tr>
     <td><b>Dependency Injection</b></td>
