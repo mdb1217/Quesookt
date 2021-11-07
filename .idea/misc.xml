@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/custom_progress_bar.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_triangle.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ll_sky_gradient.xml" value="0.14427083333333332" />
         <entry key="app/src/main/res/drawable/rectangle_border_gray_top.xml" value="0.1" />
@@ -10,6 +11,7 @@
         <entry key="app/src/main/res/drawable/rectangle_border_sky_10.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/drawable/rectangle_fill_gray_10.xml" value="0.14427083333333332" />
         <entry key="app/src/main/res/drawable/rectangle_fill_sky_10.xml" value="0.14427083333333332" />
+        <entry key="app/src/main/res/drawable/rectangle_fill_white_60.xml" value="0.11145833333333334" />
         <entry key="app/src/main/res/drawable/rectangle_fill_white_8.xml" value="0.159375" />
         <entry key="app/src/main/res/drawable/rectangle_fill_white_top_20.xml" value="0.14427083333333332" />
         <entry key="app/src/main/res/drawable/selector_answer.xml" value="0.12314814814814815" />
@@ -22,10 +24,10 @@
         <entry key="app/src/main/res/layout/fragment_character.xml" value="0.1460080006292969" />
         <entry key="app/src/main/res/layout/fragment_complete.xml" value="0.31736696385186947" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.12395833333333334" />
-        <entry key="app/src/main/res/layout/fragment_nickname.xml" value="0.22705314009661837" />
+        <entry key="app/src/main/res/layout/fragment_nickname.xml" value="0.17622296355249967" />
         <entry key="app/src/main/res/layout/fragment_quest.xml" value="0.13802083333333334" />
-        <entry key="app/src/main/res/layout/fragment_question.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_result.xml" value="0.1862065236984218" />
+        <entry key="app/src/main/res/layout/fragment_question.xml" value="0.2142473726776007" />
+        <entry key="app/src/main/res/layout/fragment_result.xml" value="0.187412469459459" />
         <entry key="app/src/main/res/layout/item_completed_quest.xml" value="0.23561582651790527" />
         <entry key="app/src/main/res/layout/item_quest.xml" value="0.2107867014695998" />
         <entry key="app/src/main/res/layout/item_question.xml" value="0.22092556060147814" />
