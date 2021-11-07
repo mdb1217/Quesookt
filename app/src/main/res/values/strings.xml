@@ -40,7 +40,9 @@
     <string name="gongang">어느날 공강 시간이 생긴 당신.\n어떤 일을 하시겠습니까?</string>
     <string name="renaissance">르네상스 기숙사</string>
     <string name="renaissance_explain">르네상스 기숙사는 혼밥, 혼강을 즐기는\n사람들이 거주하는 기숙사입니다.</string>
-
+    <string name="prime_explain">다양한 학과 사람들과의 친목 및 취미를 자주 공유하는\n사람들이 모인 기숙사입니다</string>
+    <string name="jinri_explain">열정! 열정! 열정! 학업에 누구보다 열정적으로 임하는 사람들이 모인 기숙사입니다</string>
+    <string name="sunheon_explain">취준에 관심이 많고 선배들과의 네트워크를 좋아하는\n사람들이 모인 기숙사입니다</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
