@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="characterInfoData"
+            type="org.quesong.quesookt.ui.view.character.CharacterInfoData" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +29,7 @@
                 android:id="@+id/text_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가나다라마바사"
+                android:text="@{characterInfoData.name}"
                 android:textColor="#56A4FF"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -58,28 +64,45 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+
+            <TextView
+                android:id="@+id/tv_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exp"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                app:layout_constraintTop_toBottomOf="@id/cl_character_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="21dp"
+                android:layout_marginStart="34dp"/>
+
             <ProgressBar
                 android:id="@+id/pb_character_exp"
                 android:background="@drawable/pb_drawable"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="272dp"
-                android:layout_height="30dp"
+                android:progress="@{characterInfoData.progress}"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="357dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginEnd="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tv_exp" />
 
             <TextView
                 android:id="@+id/text_character_info"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="40dp"
-                android:text="지금 눈송이는 배고파요"
+                android:text="@{characterInfoData.content}"
                 android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pb_character_exp" />
@@ -111,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="1"
+                    android:text="@{characterInfoData.level}"
                     android:textColor="#56A4FF"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -121,26 +144,25 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_character_circle"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
                 android:layout_marginStart="43dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="43dp"
                 android:background="@drawable/oval_drawable"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/cl_character_level">
 
                 <ImageView
                     android:id="@+id/img_lnoonsong"
-                    android:layout_width="348dp"
-                    android:layout_height="346dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/lnoonsong" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

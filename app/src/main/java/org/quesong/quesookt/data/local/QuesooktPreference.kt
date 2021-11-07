@@ -8,6 +8,7 @@ object QuesooktPreference {
     private const val DORMITORY = "DORMITORY"
     private const val IS_FIRST_VISIT = "IS_FIRST_VISIT"
     private const val IS_DORMITORY_EXIST = "IS_DORMITORY_EXIST"
+    private const val SCORE = "SCORE"
 
     lateinit var preferences: SharedPreferences
 
@@ -45,5 +46,13 @@ object QuesooktPreference {
 
     fun setDormitoryExist(value: Boolean) {
         preferences.edit().putBoolean(IS_DORMITORY_EXIST, value).apply()
+    }
+
+    fun getScore() : Int {
+        return preferences.getInt(SCORE, 0)
+    }
+
+    fun setScore(value: Int) {
+        preferences.edit().putInt(SCORE, value).apply()
     }
 }

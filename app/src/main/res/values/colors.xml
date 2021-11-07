@@ -10,10 +10,11 @@
     <color name="light_gray">#CBCBCC</color>
     <color name="main_sky">#56A4FF</color>
     <color name="gray">#C9C9C9</color>
-    <color name="white_blue">#EAEAFA</color>>
+    <color name="white_blue">#EAEAFA</color>
     <color name="deep_blue">#1A316B</color>
     <color name="medium_blue">#366A9B</color>
     <color name="light_sky">#C1DEFF</color>
+    <color name="pare_gray">#E5E5E5</color>
     <color name="renaissance_yellow">#FFC800</color>
     <color name="sunheon_green">#007800</color>
     <color name="jinri_purple">#6400C8</color>
