@@ -44,7 +44,7 @@ class OnboardViewModel @Inject constructor(private val questionDataSource: Quest
     }
 
     fun addRenaissance(score: Int) {
-        _prime += score
+        _renaissance += score
     }
 
     fun compareDormitory(): String {
